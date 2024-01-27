@@ -36,6 +36,29 @@ In `ItemDesignerScreen` component's file:
 import router from './router';
 import { usePathname } from 'expo-router';
 
+router('/item-designer')
+    .addRoute('/theme-picker/{color}')
+    .addRoute('/pixel-art/{color}')
+
+export default function ItemDesignerScreen() {
+    const pathname = usePathname();
+
+    return (
+        <>
+            ...
+            {router('/item-designer').execute(pathname, extraProps)}
+            ...
+        </>
+    )
+}
+```
+
+or
+
+```tsx
+import router from './router';
+import { usePathname } from 'expo-router';
+
 const r = router('/item-designer')
     .addRoute('/theme-picker/{color}')
     .addRoute('/pixel-art/{color}')
