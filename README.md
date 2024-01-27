@@ -95,3 +95,29 @@ export type RouteExecution = {
 }
 ```
 
+Most of `expo-router` navigation methods supported in all routers:
+
+```tsx
+class Router {
+  ...
+  navigate(href: Parameters<(typeof expoRouter)['navigate']>[0]) {
+    return expoRouter.navigate(href);
+  }
+
+  push(href: Parameters<(typeof expoRouter)['push']>[0]) {
+    return expoRouter.push(href);
+  }
+
+  replace(href: Parameters<(typeof expoRouter)['replace']>[0]) {
+    return expoRouter.replace(href);
+  }
+
+  back() {
+    return expoRouter.back();
+  }
+
+  canGoBack() {
+    return expoRouter.canGoBack();
+  }
+}
+```
