@@ -1,5 +1,7 @@
 # better-react-native-expo-router
 
+Just copy the file `router.tsx` in your project and start using.
+
 ---
 
 ## Usage
@@ -75,3 +77,21 @@ export default function ItemDesignerScreen() {
     )
 }
 ```
+
+Routed components receive the following prop by via the router, and any extra props you pass:
+
+```tsx
+export type RoutableComponent = (props: {routeExecution: RouteExecution}) => JSX.Element
+
+export type Route = {
+  pattern: string,
+  regexp: RegExp,
+  pathParameters: string[],
+}
+
+export type RouteExecution = {
+  route: Route,
+  args: Record<string, string>,
+}
+```
+
